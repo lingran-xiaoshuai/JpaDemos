@@ -1,0 +1,16 @@
+server:
+  port: 8080   #tomcat端口号
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver #mysql驱动
+    url: jdbc:mysql://127.0.0.1:3306/jpatest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC   #连接地址以及编码
+    username: root                                               #账号
+    password: 123456                                             #密码
+
+jpa:
+  hibernate:
+    ddl-auto: none
+  show-sql: true   #jpa
