@@ -1,18 +1,15 @@
 package com.rigid.jpademos.service;
 
-import com.rigid.jpademos.entity.StudntEntity;
+import com.rigid.jpademos.entity.StudentEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -26,13 +23,13 @@ public class StudentServiceImplTest {
         /**
          * 查找全部数据
          */
-        List<StudntEntity> studntEntityList = studentService.findAllStudent();
+        List<StudentEntity> studentEntityList = studentService.findAllStudent();
         //数据量
-        System.out.println(studntEntityList.size());
-        if (studntEntityList.size() > 0) {
+        System.out.println(studentEntityList.size());
+        if (studentEntityList.size() > 0) {
             //循环输出
-            for (StudntEntity studntEntity : studntEntityList) {
-                System.out.println(studntEntity.toString());
+            for (StudentEntity studentEntity : studentEntityList) {
+                System.out.println(studentEntity.toString());
             }
         }
     }
@@ -46,10 +43,10 @@ public class StudentServiceImplTest {
      */
     @Test
     public void findStudentById() {
-        StudntEntity studntEntity = studentService.findById(3);
+        StudentEntity studentEntity = studentService.findById(3);
         //输出
-        if (studntEntity != null) {
-            System.out.println(studntEntity.toString());
+        if (studentEntity != null) {
+            System.out.println(studentEntity.toString());
         } else {
             System.out.println("数据不存在!");
         }
@@ -65,14 +62,14 @@ public class StudentServiceImplTest {
     @Test
     public void studentAdd() {
         //实例化对象
-        StudntEntity studntEntity = new StudntEntity();
-        studntEntity.setStudntName("丽莉");
-        studntEntity.setStudentAge(22);
-        studntEntity.setStudentSex("2");
+        StudentEntity studentEntity = new StudentEntity();
+        studentEntity.setStudentName("丽莉");
+        studentEntity.setStudentAge(22);
+        studentEntity.setStudentSex("2");
         //调用方法
-        studentService.studentAdd(studntEntity);
+        studentService.studentAdd(studentEntity);
         //集合里面自增的数据返回了(刷循缓存)
-        if (studntEntity.getId() > 0) {
+        if (studentEntity.getId() > 0) {
             System.out.println("添加成功!");
         } else {
             System.out.println("添加失败!");
@@ -90,14 +87,14 @@ public class StudentServiceImplTest {
     @Test
     public void deleteStudentById() {
         //实例化对象
-        StudntEntity studntEntity = new StudntEntity();
+        StudentEntity studentEntity = new StudentEntity();
         Integer id = 2;
-        studntEntity.setId(id);
+        studentEntity.setId(id);
 
         //调用方法(存在删除)
         if (studentService.findById(id) != null) {
             //删除方法
-            studentService.deleteStudent(studntEntity);
+            studentService.deleteStudent(studentEntity);
             if (studentService.findById(id) == null) {
                 System.out.println("删除成功!");
             } else {

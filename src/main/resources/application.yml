@@ -1,5 +1,5 @@
 server:
-  port: 8080   #tomcat端口号
+  port: 8085  #tomcat端口号
   servlet:
     context-path: /
 
@@ -10,7 +10,29 @@ spring:
     username: root                                               #账号
     password: 123456                                             #密码
 
-jpa:
-  hibernate:
-    ddl-auto: none
-  show-sql: true   #jpa
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 192.168.1.126:9300
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true   #jpa
+
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+
+  redis:
+    database: 0         #Redis数据库索引（默认为0）
+    password:           #密码(测试服务器无)
+    port: 6379          #端口号
+    host: 192.168.1.125 #地址
+    lettuce:
+      pool:
+        min-idle: 5     #连接池中的最小空闲连接
+        max-idle: 5     #连接池中的最大空闲连接
+        max-active: 10  #连接池最大连接数（使用负值表示没有限制）
+        max-wait: 1ms   #连接池最大阻塞等待时间（使用负值表示没有限制）
+      shutdown-timeout: 300ms  #连接超时时间（毫秒）

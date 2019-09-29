@@ -239,8 +239,9 @@ public final class StringUtils extends org.apache.commons.lang.StringUtils {
             int code = (int) c;
             if (code > 256) {
                 cutNum += 2;
-            } else
+            } else {
                 cutNum++;
+            }
             if (cutNum > len) {
                 return str.substring(0, i).toString().trim();
             }

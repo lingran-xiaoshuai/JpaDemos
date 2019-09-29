@@ -6,21 +6,22 @@ import java.util.Objects;
 /**
  * @tool: Created with IntelliJ IDEA
  * @program: jpademos
- * @description:
+ * @description:  实体类
  * @author: Rigid
  * @create: 2019-08-26 11:05
  */
 @Entity   //标记该实体映射到数据库表
-@Table(name = "studnt", catalog = "jpatest")  //通过name属性指定映射到数据库表的表名
-public class StudntEntity {
+@Table(name = "student", catalog = "jpatest")  //通过name属性指定映射到数据库表的表名
+public class StudentEntity {
     private int id;
-    private String studntName;
+    private String studentName;
     private Integer studentAge;
     private String studentSex;
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//自增
+    //自增
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -30,13 +31,13 @@ public class StudntEntity {
     }
 
     @Basic
-    @Column(name = "studnt_name", nullable = false, length = 255)
-    public String getStudntName() {
-        return studntName;
+    @Column(name = "student_name", nullable = false, length = 255)
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setStudntName(String studntName) {
-        this.studntName = studntName;
+    public void setStudentName(String studntName) {
+        this.studentName = studntName;
     }
 
     @Basic
@@ -61,9 +62,9 @@ public class StudntEntity {
 
     @Override
     public String toString() {
-        return "StudntEntity{" +
+        return "StudentEntity{" +
                 "id=" + id +
-                ", studntName='" + studntName + '\'' +
+                ", studntName='" + studentName + '\'' +
                 ", studentAge=" + studentAge +
                 ", studentSex='" + studentSex + '\'' +
                 '}';

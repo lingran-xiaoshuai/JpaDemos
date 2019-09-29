@@ -1,6 +1,6 @@
 package com.rigid.jpademos.service;
 
-import com.rigid.jpademos.entity.StudntEntity;
+import com.rigid.jpademos.entity.StudentEntity;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface StudentService {
      *
      * @return
      */
-    List<StudntEntity> findAllStudent();
+    List<StudentEntity> findAllStudent();
 
     /**
      * 根据id查找数据
@@ -25,21 +25,21 @@ public interface StudentService {
      * @param id
      * @return
      */
-    StudntEntity findById(int id);
+    StudentEntity findById(int id);
 
     /**
      * 添加数据(对象)
      *
-     * @param studntEntity
+     * @param studentEntity
      */
-    void studentAdd(StudntEntity studntEntity);
+    void studentAdd(StudentEntity studentEntity);
 
     /**
      * 删除数据
      *
-     * @param studntEntity
+     * @param studentEntity
      */
-    void deleteStudent(StudntEntity studntEntity);
+    void deleteStudent(StudentEntity studentEntity);
 }
 
 
