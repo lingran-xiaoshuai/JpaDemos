@@ -1,4 +1,4 @@
-package com.rigid.jpademos.reward;
+package com.rigid.jpademos.workTest;
 
 import org.junit.Test;
 

@@ -169,10 +169,12 @@ public final class StringUtils extends org.apache.commons.lang.StringUtils {
      * @return
      */
     public static String strArray2Str(String[] data, String fenge) {
-        if (data == null)
+        if (data == null) {
             return "";
-        if (fenge == null || fenge.equals(""))
+        }
+        if (fenge == null || fenge.equals("")) {
             fenge = ",";
+        }
         StringBuffer sb = new StringBuffer("");
         for (int i = 0; i < data.length; i++) {
             sb.append(data[i]).append(fenge);

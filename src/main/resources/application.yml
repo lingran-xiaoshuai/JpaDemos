@@ -25,7 +25,7 @@ spring:
       enabled: true  #设置开启热部署
 
   redis:
-    database: 0         #Redis数据库索引（默认为0）
+    database: 3         #Redis数据库索引（默认为0）
     password:           #密码(测试服务器无)
     port: 6379          #端口号
     host: 192.168.1.125 #地址

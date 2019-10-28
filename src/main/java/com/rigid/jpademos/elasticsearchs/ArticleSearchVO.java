@@ -25,6 +25,7 @@ import java.util.Date;
  */
 @Document(indexName = "articles_search_test", type = "sports", shards = 1, replicas = 0)
 public class ArticleSearchVO implements Serializable {
+
     @Id
     private Integer dataId;
     @Field(type = FieldType.Integer)

@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @create: 2019-08-26 11:13
  */
 @Component
-public class RedisUtil {
+public class RedisUtils {
 
     RedisTemplate redisTemplate;
 

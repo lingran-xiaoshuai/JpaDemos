@@ -1,4 +1,4 @@
-package com.rigid.jpademos.reward;
+package com.rigid.jpademos.workTest;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -105,7 +105,7 @@ public class List放数组_map {
             Iterator<Map.Entry<String, Object>> it = map.entrySet().iterator();
             while (it.hasNext()) {
                 Map.Entry<String, Object> entry = it.next();
-                System.out.println("key: " + entry.getKey() + " ~~~ value: " +
+                System.out.println("key: " + entry.getKey() + " -------------------- value: " +
                         entry.getValue());
             }
 
