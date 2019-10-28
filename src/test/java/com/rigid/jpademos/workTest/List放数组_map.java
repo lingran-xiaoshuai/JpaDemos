@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -51,7 +52,7 @@ public class List放数组_map {
             "}";
 
     @Test
-    public void test() {
+    public void test1() {
         //解析json(拿到活动详情)                    活动配置化文本
         JSONObject config = JSONObject.parseObject(json);
         JSONArray data = config.getJSONArray("taskInfo");
@@ -78,7 +79,7 @@ public class List放数组_map {
     }
 
     @Test
-    public void test1() {
+    public void test2() {
         //转成json数组
         JSONObject jsonObject = JSONObject.parseObject(json);
         JSONArray data = jsonObject.getJSONArray("taskInfo");
@@ -109,6 +110,42 @@ public class List放数组_map {
                         entry.getValue());
             }
 
+        }
+    }
+
+    @Test
+    public void test3() {
+        String json = "[{\"minPrice\":100,\"giftPrice\":10},\n" +
+                " {\"minPrice\":200,\"giftPrice\":20},\n" +
+                " {\"minPrice\":500,\"giftPrice\":40},\n" +
+                " {\"minPrice\":1000,\"giftPrice\":80},\n" +
+                " {\"minPrice\":5000,\"giftPrice\":200},\n" +
+                " {\"minPrice\":10000,\"giftPrice\":500},\n" +
+                " {\"minPrice\":50000,\"giftPrice\":1000}\n" +
+                "]";
+
+        //转成json数组
+        JSONArray data = JSONObject.parseArray(json);
+        //倒叙
+        Collections.reverse(data);
+        //定义价格
+        BigDecimal price = new BigDecimal(100);
+        //最少100奖励
+        BigDecimal prices = new BigDecimal(100);
+        //小于 时，返回 -1
+        //等于 时，返回 0
+        //大于 时，返回 1
+        JSONObject item;
+        if (price.compareTo(prices) >= 0) {
+            for (int i = 0; i < data.size(); i++) {
+                item = data.getJSONObject(i);
+                if (price.compareTo(item.getBigDecimal("minPrice")) >= 0) {
+                    System.out.println(item.getBigDecimal("giftPrice"));
+                    break;
+                }
+            }
+        } else {
+            System.out.println("您的中奖金额不足，未能领取此任务奖励！");
         }
     }
 }

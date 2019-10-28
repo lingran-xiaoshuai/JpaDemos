@@ -44,7 +44,6 @@ public class StudentServiceImpl implements StudentService {
         studentDAO.saveAndFlush(studentEntity);
     }
 
-
     @Override
     public void deleteStudent(StudentEntity studentEntity) {
         studentDAO.delete(studentEntity);

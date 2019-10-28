@@ -2,6 +2,7 @@ package com.rigid.jpademos.workTest;
 
 import com.caimao.common.utils.DateUtil;
 import org.apache.commons.lang3.time.DateUtils;
+import org.apache.commons.lang3.time.FastDateFormat;
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -9,7 +10,7 @@ import java.util.Calendar;
 /**
  * @tool: Created with IntelliJ IDEA
  * @program: JpaDemos
- * @description:
+ * @description: 时间的基础操作
  * @author: Rigid_Shuai
  * @create: 2019-10-28 10:38
  */
@@ -131,8 +132,19 @@ public class TimeTest {
         System.out.println(year1 + "年" + (month + 1) + "月" + date1 + "日" + hour + "时" + minute + "分" + second + "秒" + millSecond + "毫秒");
     }
 
+    /**
+     * @Author: Rigid_Shuai
+     * @Date: 2019-10-28 15:58
+     * @Description: Long类型转String
+     * @Param: []
+     * @return: void
+     */
     @Test
     public void test5() {
-
+        Long timeMillis = System.currentTimeMillis();
+        // 24小时
+        System.out.println(FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").format(timeMillis));
+        // 12小时
+        System.out.println(FastDateFormat.getInstance("yyyy-MM-dd hh:mm:ss").format(timeMillis));
     }
 }

@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 /**
  * @tool: Created with IntelliJ IDEA
  * @program: JpaDemos
- * @description:
+ * @description: (( 旧容量 * 3) / 2) + 1  List初始化长度扩容规则 动态增长的数量变化：10->16->25->38->58->88->...
  * @author: Rigid_Shuai
  * @create: 2019-10-28 09:20
  */
@@ -50,7 +50,7 @@ public class ListTest {
 
         //过滤集合 --> item.getId() != 5
         studentEntityList = studentEntityList.stream().filter((item) ->
-                item.getId() != 5
+                item.getId() != 5 && item.getId() != 10
         ).collect(Collectors.toList());
 
         //输出过滤后的集合
@@ -60,6 +60,18 @@ public class ListTest {
 
         //排序  ASC(默认)--> 从低到高    DESC--> 从高到低
         Collections.sort(studentEntityList, Comparator.comparing(StudentEntity::getId));
+
+        //输出过滤排序后的集合
+        for (StudentEntity entity : studentEntityList) {
+            logger.info(entity.toString());
+        }
+
+        // DESC--> 从高到低
+        Collections.sort(studentEntityList, Comparator.comparing(StudentEntity::getId).reversed());
+
+        //不借助stream的排序
+//        list.sort(Comparator.comparing(Integer::intValue));
+//        list.sort(Comparator.comparing(Integer::intValue).reversed())
 
         //输出过滤排序后的集合
         for (StudentEntity entity : studentEntityList) {
