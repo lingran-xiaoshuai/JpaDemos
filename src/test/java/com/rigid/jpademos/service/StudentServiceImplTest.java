@@ -63,7 +63,7 @@ public class StudentServiceImplTest {
     public void studentAdd() {
         //实例化对象
         StudentEntity studentEntity = new StudentEntity();
-        studentEntity.setStudentName("丽莉");
+        studentEntity.setStudentName("啦啦");
         studentEntity.setStudentAge(22);
         studentEntity.setStudentSex("2");
         //调用方法

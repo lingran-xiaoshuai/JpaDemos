@@ -7,4 +7,6 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-数据库名称: jpatest
+-- 数据库名称: jpatest
+-- 账号:root
+-- 密码:123456

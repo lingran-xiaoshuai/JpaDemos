@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * @tool: Created with IntelliJ IDEA
  * @program: JpaDemos
- * @description:
+ * @description: json数据的配置化
  * @author: Rigid_Shuai
  * @create: 2019-09-05 16:49
  */

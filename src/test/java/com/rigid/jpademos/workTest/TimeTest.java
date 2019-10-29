@@ -5,7 +5,9 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @tool: Created with IntelliJ IDEA
@@ -146,5 +148,142 @@ public class TimeTest {
         System.out.println(FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").format(timeMillis));
         // 12小时
         System.out.println(FastDateFormat.getInstance("yyyy-MM-dd hh:mm:ss").format(timeMillis));
+    }
+
+    /**
+     * @Author: Rigid_Shuai
+     * @Date: 2019-10-29 10:14
+     * @Description: date1.after(date), 当date1大于date2时，返回true，当小于等于时，返回false；
+     * @Description: date1.before(date)，当date1小于date2时，返回true，当大于等于时，返回false；
+     * @Description: 若要校验date2必须比date1小，且不能相等时，使用 !date1.after(date2);
+     * @Param: []
+     * @return: void
+     */
+    @Test
+    public void test6() {
+        Date now = new Date();
+        Date now1 = new Date();
+        System.out.println(now);
+        System.out.println(now1);
+        Calendar calendar = Calendar.getInstance();
+        //加1个小时
+        calendar.add(Calendar.HOUR_OF_DAY, +1);
+        Date now2 = calendar.getTime();
+        System.out.println(now2);
+        //now2 > now  true
+        boolean after = now2.after(now);
+        System.out.println(after);
+        //now2 < now  false
+        boolean before = now2.before(now);
+        System.out.println(before);
+        //now1 > now  false
+        boolean after1 = now1.after(now);
+        System.out.println(after1);
+        //now1 < now  false
+        boolean before1 = now1.before(now);
+        System.out.println(before1);
+    }
+
+    /**
+     * @Author: Rigid_Shuai
+     * @Date: 2019-10-29 10:28
+     * @Description: 小于 时，返回 -1
+     * @Description: 等于 时，返回 0
+     * @Description: 大于 时，返回 1
+     * @Param: []
+     * @return: void
+     */
+    @Test
+    public void test7() {
+        BigDecimal b1 = new BigDecimal(101);
+        BigDecimal b2 = new BigDecimal(100);
+        BigDecimal b3 = new BigDecimal(100);
+        BigDecimal b4 = new BigDecimal(0);
+
+
+        //b1 >= b2
+        if (b1.compareTo(b2) >= 0) {
+            System.out.println("b1 >= b2");
+        }
+        //b1 > b2
+        if (b1.compareTo(b2) == 1) {
+            System.out.println("b1 > b2");
+        }
+
+        //b2 >= b3
+        if (b2.compareTo(b3) >= 0) {
+            System.out.println("b2 >= b3");
+        }
+        //b2 = b3
+        if (b2.compareTo(b3) == 0) {
+            System.out.println("b2 = b3");
+        }
+
+        //b4 = 0  BigDecimal b4 = new BigDecimal(0);
+        if (b4.compareTo(BigDecimal.ZERO) == 0) {
+            System.out.println("b4 = 0");
+        }
+    }
+
+    /**
+    * @Author: Rigid_Shuai
+    * @Date: 2019-10-29 10:42
+    * @Description: 加法 add()函数        减法subtract()函数
+    * @Description: 乘法multiply()函数    除法divide()函数      绝对值abs()函数
+    * @Description:  https://blog.csdn.net/haiyinshushe/article/details/82721234
+    * @Param: []
+    * @return: void
+    */
+    @Test
+    public  void test8(){
+        BigDecimal num1 = new BigDecimal(0.005);
+        BigDecimal num2 = new BigDecimal(1000000);
+        BigDecimal num3 = new BigDecimal(-1000000);
+        //尽量用字符串的形式初始化
+        BigDecimal num12 = new BigDecimal("0.005");
+        BigDecimal num22 = new BigDecimal("1000000");
+        BigDecimal num32 = new BigDecimal("-1000000");
+
+        //加法
+        BigDecimal result1 = num1.add(num2);
+        BigDecimal result12 = num12.add(num22);
+        //减法
+        BigDecimal result2 = num1.subtract(num2);
+        BigDecimal result22 = num12.subtract(num22);
+        //乘法
+        BigDecimal result3 = num1.multiply(num2);
+        BigDecimal result32 = num12.multiply(num22);
+        //绝对值
+        BigDecimal result4 = num3.abs();
+        BigDecimal result42 = num32.abs();
+        //除法
+        BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
+        BigDecimal result52 = num22.divide(num12,20,BigDecimal.ROUND_HALF_UP);
+
+        System.out.println("加法用value结果："+result1);
+        System.out.println("加法用string结果："+result12);
+
+        System.out.println("减法value结果："+result2);
+        System.out.println("减法用string结果："+result22);
+
+        System.out.println("乘法用value结果："+result3);
+        System.out.println("乘法用string结果："+result32);
+
+        System.out.println("绝对值用value结果："+result4);
+        System.out.println("绝对值用string结果："+result42);
+
+        System.out.println("除法用value结果："+result5);
+        System.out.println("除法用string结果："+result52);
+
+        //加法用value结果：1000000.005000000000000000104083408558608425664715468883514404296875
+        //加法用string结果：1000000.005
+        //减法value结果：-999999.994999999999999999895916591441391574335284531116485595703125
+        //减法用string结果：-999999.995
+        //乘法用value结果：5000.000000000000104083408558608425664715468883514404296875000000
+        //乘法用string结果：5000.000
+        //绝对值用value结果：1000000
+        //绝对值用string结果：1000000
+        //除法用value结果：199999999.99999999583666365766
+        //除法用string结果：200000000.00000000000000000000
     }
 }

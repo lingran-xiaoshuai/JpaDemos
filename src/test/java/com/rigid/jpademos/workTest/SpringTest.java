@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @tool: Created with IntelliJ IDEA
  * @program: JpaDemos
- * @description:
+ * @description: spring bean
  * @author: Rigid_Shuai
  * @create: 2019-10-28 13:35
  */

@@ -77,6 +77,13 @@ public class ListTest {
         for (StudentEntity entity : studentEntityList) {
             logger.info(entity.toString());
         }
+
+        //过滤后集合的数量 -->  使用parallelStream()生成并行流后，对集合元素的遍历是无序的。
+        Long count = studentEntityList.parallelStream().filter(item -> item.getId() < 5).count();
+        logger.info(String.valueOf(count));
+
+        //求和
+//        Integer total = studentEntityList.stream().reduce((t, n) -> n.getId() + t.getId()).get();
     }
 
     /**
