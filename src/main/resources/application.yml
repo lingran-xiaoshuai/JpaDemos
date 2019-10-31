@@ -7,8 +7,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver #mysql驱动
     url: jdbc:mysql://127.0.0.1:3306/jpatest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC   #连接地址以及编码
-    username: root                                               #账号
-    password: 123456                                             #密码
+    username: root      #账号
+    password: 123456    #密码
 
   data:
     elasticsearch:
@@ -18,7 +18,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true   #jpa
+    show-sql: true        #显示sql语句
+    properties:
+      hibernate:
+        format_sql: true  #格式化显示sql语句
 
   devtools:
     restart:

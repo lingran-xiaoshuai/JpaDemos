@@ -49,5 +49,10 @@ public class StudentServiceImpl implements StudentService {
         studentDAO.delete(studentEntity);
     }
 
+    @Override
+    public StudentEntity queryByIdAndStudentNameOrderByIdDesc(Integer id, String userName) {
+        return studentDAO.queryByIdAndStudentNameOrderByIdDesc(id, userName);
+    }
+
 
 }

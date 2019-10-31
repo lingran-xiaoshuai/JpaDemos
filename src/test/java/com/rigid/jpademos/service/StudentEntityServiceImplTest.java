@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class StudentServiceImplTest {
+public class StudentEntityServiceImplTest {
 
     @Autowired
     private StudentService studentService;

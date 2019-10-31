@@ -17,4 +17,5 @@ public interface StudentDAO extends JpaRepository<StudentEntity, Integer>, JpaSp
      * 继承JpaRepository已提供很多默认查询方法,所以不是复杂查询不用再写接口
      */
 
+    StudentEntity queryByIdAndStudentNameOrderByIdDesc(int id, String userName);
 }

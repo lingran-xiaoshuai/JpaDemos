@@ -2,8 +2,6 @@ package com.rigid.jpademos.workTest.Thread;
 
 import org.apache.commons.lang3.time.FastDateFormat;
 
-import java.util.Date;
-
 /**
  * @Tool: Created with IntelliJ IDEA
  * @Program: JpaDemos

@@ -17,15 +17,27 @@ import java.util.List;
  * @create: 2019-09-06 09:50
  */
 @RestController
-@RequestMapping("/student")
+@RequestMapping("student")
 public class StudentController {
     @Resource
     private StudentService studentService;
 
-
-    @GetMapping("/show")
-    public Object show() {
+    @GetMapping("findAllStudent")
+    public Object findAllStudent() {
         List<StudentEntity> allStudent = studentService.findAllStudent();
         return allStudent;
     }
+
+    @GetMapping("findById")
+    public Object findById(Integer id) {
+        StudentEntity allStudent = studentService.findById(id);
+        return allStudent;
+    }
+
+    @GetMapping("params")
+    public Object findById(Integer id, String userName) {
+        StudentEntity allStudent = studentService.queryByIdAndStudentNameOrderByIdDesc(id, userName);
+        return allStudent;
+    }
+
 }

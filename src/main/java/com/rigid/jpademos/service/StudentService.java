@@ -40,6 +40,14 @@ public interface StudentService {
      * @param studentEntity
      */
     void deleteStudent(StudentEntity studentEntity);
+
+    /**
+     *  参数查询
+     * @param id
+     * @param userName
+     * @return
+     */
+    StudentEntity queryByIdAndStudentNameOrderByIdDesc(Integer id, String userName);
 }
 
 
