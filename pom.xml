@@ -112,7 +112,7 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>4.1.0</version>
+            <version>4.1.1</version>
         </dependency>
         <!--在java中读取和写入.xlsx格式使用maven导入jar包：-->
         <dependency>
